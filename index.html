@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela com HTML5</title>
+    <link rel="stylesheet" href="style.css" id="linkEstilos">
+    <link rel="stylesheet" href="style-black.css" id="linkEstilosBlack">
+</head>
+<body>
+    <h1>Construção de tabelas - Futebol</h1>
+    <img src="./img/fpf.png" alt="Federação" class="image">
+    <table>
+        <caption>FEDERAÇÃO PAULISTA DE FUTEBOL</caption>
+        <thead>
+            <tr>
+                <th colspan="6" class="titulo-tabela">PAULISTÃO</th>
+            </tr>
+
+            <tr>
+                <th>ID do Funcionário</th>
+                <th>Nome do Funcionário</th>
+                <th>Cargo</th>
+                <th>Empresa</th>
+                <th>Email</th>
+                <th>Possui crachá?</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>123450</td>
+                <td>SÃO PAULO</td>
+                <td>MAIOR DO BRASIL</td>
+                <td>SPFC</td>
+                <td>SPFC@gmail.com</td>
+                <td>Possui</td>
+            </tr>
+
+            <tr>
+                <td>123451</td>
+                <td>CORINTHIANS</td>
+                <td>MENOR DO ESTADO</td>
+                <td>COR</td>
+                <td>COR@gmail.com</td>
+                <td>Não Possui</td>
+            </tr>
+
+            <tr>
+                <td>123452</td>
+                <td>SANTOS</td>
+                <td>SEGUNDO MAIOR DO BRASIL</td>
+                <td>SAN</td>
+                <td>SAN@gmail.com</td>
+                <td>Possui</td>
+            </tr>
+
+            <tr>
+                <td>123453</td>
+                <td>PALMEIRAS</td>
+                <td>MAIOR QUE O CORINTHIANS</td>
+                <td>PAL</td>
+                <td>PAL@gmail.com</td>
+                <td>Não Possui</td>
+            </tr>
+
+            <tr>
+                <td>123454</td>
+                <td>SANTO ANDRÉ</td>
+                <td>MAIOR DO ABC</td>
+                <td>SAT</td>
+                <td>SAT@gmail.com</td>
+                <td>Possui</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="5"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <button type="button" id="botaoEstilo">Remove estilos</button>
+    <script>
+        function removerEstilos() {
+            const linkEstilos = document.querySelector('#linkEstilos');
+            const linkEstilosBlack = document.querySelector('#linkEstilosBlack');
+            
+            if(linkEstilos.hasAttribute('disabled')) {
+                linkEstilos.removeAttribute('disabled');
+                linkEstilosBlack.setAttribute('disabled', '');
+                botao.innerHTML = "Remover estilo";
+            } else {
+                linkEstilosBlack.removeAttribute('disabled');
+                linkEstilos.setAttribute('disabled', '');
+                botao.innerHTML = "Aplicar estilo Black";
+            }
+        }
+
+        const botao = document.querySelector('#botaoEstilo');
+        botao.addEventListener('click', removerEstilos);
+    </script>
+</body>
+</html>
