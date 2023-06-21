@@ -6,12 +6,29 @@
     font-size: 11pt;
 }
 
+:root {
+    --background-color: #d4d4d4;
+    --primary-color: #333;
+    --secondary-color: #cacaca;
+    --font-color:#111111;
+    --color-table: #D5A500;
+}
+
+[data-theme='escuro'] {
+    --background-color: #6e6e6e;
+    --primary-color: #111111;
+    --secondary-color: #636363;
+    --font-color:#ffffff;
+    --color-table: #D5A500;
+}
+
 body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background .5ms;
 }
 
 h1 {
@@ -26,7 +43,7 @@ h1 {
 table {
     border-spacing: 0;
     border-collapse: collapse;
-    box-shadow: 0px 5px 50px #00000044;
+    box-shadow: 0px 5px 50px var(--primary-color);
 }
 
 caption {
@@ -37,46 +54,50 @@ caption {
 }
 
 tbody>tr:nth-child(odd) {
-    background-color: #dfdfdf;
+    background-color: var(--background-color);
 }
 
 tbody>tr:nth-child(even),
 thead>tr,
 tfoot>tr {
-    background-color: #ffffff;
+    background-color: var(--secondary-color);
 }
 
 td,
 th {
     padding: 15px 20px;
+    color: var(--font-color);
 }
 
 th {
     text-align: center;
+    color: var(--font-color);
 }
 
 td:nth-child(2n-1) {
     text-align: center;
+    color: var(--font-color);
 }
 
 th:nth-child(4),
 td:nth-child(4) {
     text-align: end;
+    color: var(--font-color);
 }
 
 .titulo-tabela {
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: var(--primary-color);
     font-size: 20pt;
-    background-color: #D5A500;
+    background-color: var(--color-table);
 }
 
 thead>tr:first-child {
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid var(--primary-color);
 }
 
 thead>tr:last-child {
-    border-bottom: 4px solid #ddd;
+    border-bottom: 4px solid var(--color-table);
 }
 
 thead th {
@@ -89,7 +110,7 @@ tbody td {
 }
 
 tfoot>tr {
-    border-top: 4px solid #ddd;
+    border-top: 4px solid var(--color-table);
 }
 
 tfoot td {

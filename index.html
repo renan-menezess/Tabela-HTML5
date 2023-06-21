@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela com HTML5</title>
     <link rel="stylesheet" href="style.css" id="linkEstilos">
-    <link rel="stylesheet" href="style-black.css" id="linkEstilosBlack">
 </head>
 <body>
     <h1>Construção de tabelas - Futebol</h1>
@@ -82,25 +81,25 @@
         </tfoot>
     </table>
 
-    <button type="button" id="botaoEstilo">Remove estilos</button>
+    <button type="button" id="btnAlterarTema">Remover estilos</button>
     <script>
-        function removerEstilos() {
-            const linkEstilos = document.querySelector('#linkEstilos');
-            const linkEstilosBlack = document.querySelector('#linkEstilosBlack');
-            
-            if(linkEstilos.hasAttribute('disabled')) {
-                linkEstilos.removeAttribute('disabled');
-                linkEstilosBlack.setAttribute('disabled', '');
-                botao.innerHTML = "Remover estilo";
-            } else {
-                linkEstilosBlack.removeAttribute('disabled');
-                linkEstilos.setAttribute('disabled', '');
-                botao.innerHTML = "Aplicar estilo Black";
-            }
-        }
+        const elRaiz = document.documentElement;
 
-        const botao = document.querySelector('#botaoEstilo');
-        botao.addEventListener('click', removerEstilos);
+        const temaAtual = localStorage.getItem('data-theme') ? localStorage.getItem('data-theme') : 'claro';
+
+        elRaiz.setAttribute('data-theme', temaAtual);
+
+        document.querySelector('#btnAlterarTema').addEventListener('click', () => {
+
+            if (elRaiz.getAttribute('data-theme') === 'claro') {
+                elRaiz.setAttribute('data-theme', 'escuro');
+                localStorage.setItem('data-theme', 'escuro');
+            } else {
+                elRaiz.setAttribute('data-theme', 'claro');
+                localStorage.setItem('data-theme', 'claro');
+            }
+
+        });
     </script>
 </body>
 </html>
